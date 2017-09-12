@@ -3,8 +3,9 @@ FROM ubuntu:14.04
 MAINTAINER Kristof Coomans "kristof@2dotstwice.be"
 ENV REFRESHED_AT "2017-02-04 11:13:00"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -qq -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y --fix-missing -q install supervisor nginx
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --fix-missing --no-install-recommends -q install supervisor nginx && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV CONFIG_REFRESHED_AT "2017-02-04 11:13:00"
 
