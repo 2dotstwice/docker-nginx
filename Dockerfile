@@ -18,6 +18,9 @@ ADD ./files/etc/nginx/nginx.conf /etc/nginx/nginx.conf
 # logrotation configuration for nginx including a date filename extension
 ADD ./files/etc/logrotate.d/nginx /etc/logrotate.d/nginx
 
+# nginx site configuration with optimized expiry for assets (js, css, images)
+ADD ./files/etc/nginx/sites-available/default /etc/nginx/sites-available/default
+
 # nginx web interface
 EXPOSE 80
 
